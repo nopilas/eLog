@@ -10,6 +10,9 @@
 		2A35EB5D19C0E44100242695 /* Homarus 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A35EB5C19C0E44100242695 /* Homarus 1.png */; };
 		2A35EB5F19C0E49A00242695 /* Homarus 2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A35EB5E19C0E49A00242695 /* Homarus 2.png */; };
 		2A35EB6119C0E51F00242695 /* Homarus 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A35EB6019C0E51F00242695 /* Homarus 3.png */; };
+		2A5363CF19DE253C00CE9159 /* arrow_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5363CE19DE253C00CE9159 /* arrow_down.png */; };
+		2A5363D119DE254600CE9159 /* arrow_left.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5363D019DE254600CE9159 /* arrow_left.png */; };
+		2A5363D319DE255400CE9159 /* crayon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2A5363D219DE255400CE9159 /* crayon.png */; };
 		C016E14F19DC88A400383637 /* UserInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C016E14E19DC88A400383637 /* UserInfoViewController.m */; };
 		C03AFBF019AAA16B006F1964 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03AFBEF19AAA16B006F1964 /* Foundation.framework */; };
 		C03AFBF219AAA16B006F1964 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03AFBF119AAA16B006F1964 /* CoreGraphics.framework */; };
@@ -55,6 +58,9 @@
 		2A35EB5C19C0E44100242695 /* Homarus 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Homarus 1.png"; sourceTree = "<group>"; };
 		2A35EB5E19C0E49A00242695 /* Homarus 2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Homarus 2.png"; sourceTree = "<group>"; };
 		2A35EB6019C0E51F00242695 /* Homarus 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Homarus 3.png"; sourceTree = "<group>"; };
+		2A5363CE19DE253C00CE9159 /* arrow_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_down.png; sourceTree = "<group>"; };
+		2A5363D019DE254600CE9159 /* arrow_left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow_left.png; sourceTree = "<group>"; };
+		2A5363D219DE255400CE9159 /* crayon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = crayon.png; sourceTree = "<group>"; };
 		C016E14D19DC88A400383637 /* UserInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserInfoViewController.h; sourceTree = "<group>"; };
 		C016E14E19DC88A400383637 /* UserInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserInfoViewController.m; sourceTree = "<group>"; };
 		C03AFBEC19AAA16B006F1964 /* eLog.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eLog.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -178,6 +184,9 @@
 		C03AFBF619AAA16B006F1964 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				2A5363CE19DE253C00CE9159 /* arrow_down.png */,
+				2A5363D019DE254600CE9159 /* arrow_left.png */,
+				2A5363D219DE255400CE9159 /* crayon.png */,
 				2A35EB6019C0E51F00242695 /* Homarus 3.png */,
 				2A35EB5E19C0E49A00242695 /* Homarus 2.png */,
 				2A35EB5C19C0E44100242695 /* Homarus 1.png */,
@@ -356,10 +365,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				C03AFC0B19AAA16B006F1964 /* Images.xcassets in Resources */,
+				2A5363D319DE255400CE9159 /* crayon.png in Resources */,
 				2A35EB5F19C0E49A00242695 /* Homarus 2.png in Resources */,
+				2A5363CF19DE253C00CE9159 /* arrow_down.png in Resources */,
 				C03AFBFA19AAA16B006F1964 /* InfoPlist.strings in Resources */,
 				2A35EB5D19C0E44100242695 /* Homarus 1.png in Resources */,
 				2A35EB6119C0E51F00242695 /* Homarus 3.png in Resources */,
+				2A5363D119DE254600CE9159 /* arrow_left.png in Resources */,
 				C03AFC0319AAA16B006F1964 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
