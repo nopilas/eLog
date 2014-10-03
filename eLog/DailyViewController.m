@@ -88,4 +88,10 @@
 
 }
 
+- (void) dismissKeyboard
+{
+    [self.view endEditing:YES];
+}
+
+
 @end
