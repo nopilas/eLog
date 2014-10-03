@@ -243,7 +243,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Info" id="jbZ-5w-L3L"/>
+                    <tabBarItem key="tabBarItem" title="Info" image="arrow_left.png" id="jbZ-5w-L3L"/>
                     <connections>
                         <outlet property="latitudeLabel" destination="PIP-N9-30Z" id="cC1-jW-dzZ"/>
                         <outlet property="longitudeLabel" destination="x7g-bR-Prf" id="C1W-wz-60w"/>
@@ -369,7 +369,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" id="Yjz-eX-r9l" userLabel="Settings"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="crayon.png" id="Yjz-eX-r9l" userLabel="Settings"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8Y-h4-mED" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -453,7 +453,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Daily" id="J05-tw-OET"/>
+                    <tabBarItem key="tabBarItem" title="Daily" image="arrow_down.png" id="J05-tw-OET"/>
                     <connections>
                         <outlet property="line" destination="6CI-vx-xtv" id="4F5-A3-Jth"/>
                         <outlet property="nbLobster" destination="YUm-RV-dyj" id="qlu-iP-1XR"/>
@@ -539,6 +539,9 @@
     <resources>
         <image name="Homarus 1.png" width="252" height="356"/>
         <image name="Homarus 3.png" width="162" height="228"/>
+        <image name="arrow_down.png" width="26" height="26"/>
+        <image name="arrow_left.png" width="26" height="26"/>
+        <image name="crayon.png" width="26" height="26"/>
         <image name="index (2).jpeg" width="1001" height="1001"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
