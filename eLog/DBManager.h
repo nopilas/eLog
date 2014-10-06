@@ -18,7 +18,8 @@
 - (NSArray*) SelectListCustomer;
 - (int) SelectCustomerInfo:(NSString *)login password:(NSString *)password;
 - (BOOL) saveDataCustomer:(int)Id login:(NSString*)login password:(NSString*)password;
-- (BOOL) saveDataDaily:(int)idUser lineNo:(int)lineNo soakDays:(int)soakDays market:(int)market sculpin:(int)sculpin cunner:(int)cunner rockCrab:(int)rockCrab hauledTraps:(int)hauledTraps canner:(int)canner Date:(NSString*)Date;
+- (BOOL) saveDataDaily:(int)idUser lineNo:(int)lineNo soakDays:(int)soakDays market:(int)market sculpin:(int)sculpin cunner:(int)cunner rockCrab:(int)rockCrab hauledTraps:(int)hauledTraps canner:(int)canner Date:(NSString*)Date longitude:(double)longitude latitude:(double)latitude;
 - (NSArray*) SelectDailyInfo:(int)login;
 - (BOOL) saveDataUserInfo:(int)idUser licenceHolder:(NSString*)licenceHolder lobsterlicence:(NSString*)lobsterLicence vesselName:(NSString *)vesselName vesselNumber:(NSString *)vesselNumber zone:(NSString *)zone;
+-(BOOL)updateSentDaily:(int)idUser;
 @end

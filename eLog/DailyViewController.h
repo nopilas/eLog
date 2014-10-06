@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *cunner;
 @property (weak, nonatomic) IBOutlet UITextField *rockCrab;
 @property (weak, nonatomic) IBOutlet UITextField *hauledTraps;
+@property (weak, nonatomic) IBOutlet UIButton *dailySave;
 @property (weak, nonatomic) IBOutlet UITextField *canner;
 - (IBAction)dailySave:(id)sender;
 @end

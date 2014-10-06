@@ -426,15 +426,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-5H-buH">
-                                <rect key="frame" x="124" y="389" width="72" height="30"/>
-                                <state key="normal" title="Daily Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dailySave:" destination="ahA-1c-a03" eventType="touchUpInside" id="WwL-op-o2M"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soak Days" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfi-Jp-rsi">
                                 <rect key="frame" x="75" y="89" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -450,6 +441,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-5H-buH">
+                                <rect key="frame" x="124" y="389" width="72" height="30"/>
+                                <state key="normal" title="Daily Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dailySave:" destination="ahA-1c-a03" eventType="touchUpInside" id="WwL-op-o2M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -457,6 +457,7 @@
                     <connections>
                         <outlet property="canner" destination="YUm-RV-dyj" id="Puf-CZ-2EZ"/>
                         <outlet property="cunner" destination="G6N-Dh-w9J" id="54t-x7-PDN"/>
+                        <outlet property="dailySave" destination="JB0-5H-buH" id="8bu-tN-aBv"/>
                         <outlet property="hauledTraps" destination="6CI-vx-xtv" id="30g-LY-O8a"/>
                         <outlet property="market" destination="45c-Ff-9Ob" id="iIn-5S-EXx"/>
                         <outlet property="rockCrab" destination="d7H-8N-HJm" id="hde-te-75x"/>
