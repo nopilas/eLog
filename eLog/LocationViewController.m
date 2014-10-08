@@ -66,7 +66,19 @@ BOOL update = YES;
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     
+    
+    location = self;
+    
+    
     // Do any additional setup after loading the view.
+}
+
+-(void)stopTimer
+{
+    [self.updateTimer invalidate ];
+    update = NO;
+    [longitudeGlobal removeAllObjects];
+    [latitudeGlobal removeAllObjects];
 }
 
 -(void)updateNextPosition{

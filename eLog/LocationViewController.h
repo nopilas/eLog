@@ -17,4 +17,6 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *updateTimer;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+
+-(void)stopTimer;
 @end
