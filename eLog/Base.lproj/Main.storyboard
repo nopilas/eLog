@@ -38,16 +38,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-dc-D8E">
-                                <rect key="frame" x="93" y="364" width="135" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="StartButton:" destination="31k-x1-szb" eventType="touchUpInside" id="IuZ-mh-3D5"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Fishing Lobsters" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-5u-GGq">
                                 <rect key="frame" x="15" y="30" width="290" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
@@ -62,6 +52,16 @@
                                 <rect key="frame" x="79" y="119" width="162" height="228"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999998" height="0.59999999999999964"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-dc-D8E">
+                                <rect key="frame" x="93" y="364" width="135" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartButton:" destination="31k-x1-szb" eventType="touchUpInside" id="IuZ-mh-3D5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -350,6 +350,7 @@
                         <segue destination="ahA-1c-a03" kind="relationship" relationship="viewControllers" id="VG8-UC-7hQ"/>
                         <segue destination="9KJ-lc-hG8" kind="relationship" relationship="viewControllers" id="TKp-H8-1ue"/>
                         <segue destination="EON-03-Ude" kind="relationship" relationship="viewControllers" id="JMd-WG-HcY"/>
+                        <segue destination="wiD-kv-2FX" kind="relationship" relationship="viewControllers" id="rQN-F7-dwz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9o-Uo-FZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8Y-h4-mED" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="243"/>
+            <point key="canvasLocation" x="1778" y="-167"/>
         </scene>
         <!--Daily-->
         <scene sceneID="EeL-rp-KrT">
@@ -469,6 +470,25 @@
             </objects>
             <point key="canvasLocation" x="1394" y="624"/>
         </scene>
+        <!--Upgrade-->
+        <scene sceneID="bAa-zb-4zh">
+            <objects>
+                <viewController id="wiD-kv-2FX" customClass="UpgraveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0da-ZR-TAd"/>
+                        <viewControllerLayoutGuide type="bottom" id="VJq-5i-9Iu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dik-xp-Uw6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Upgrade" image="crayon.png" id="yp6-Bg-yit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufe-Ez-44i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="624"/>
+        </scene>
         <!--Create User View Controller-->
         <scene sceneID="Anr-5B-VEX">
             <objects>
@@ -555,7 +575,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="DAo-Fj-kbT"/>
         <segue reference="AMH-xW-3oA"/>
-        <segue reference="jPQ-Mo-GSB"/>
     </inferredMetricsTieBreakers>
 </document>
