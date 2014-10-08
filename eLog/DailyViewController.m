@@ -141,8 +141,8 @@
                 // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
                 [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
                 
-                if ( location != nil )
-                    [location 
+                //if ( location != nil )
+                //    [location
             }
             else
             {
