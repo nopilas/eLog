@@ -17,7 +17,6 @@
 		C03AFBF019AAA16B006F1964 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03AFBEF19AAA16B006F1964 /* Foundation.framework */; };
 		C03AFBF219AAA16B006F1964 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03AFBF119AAA16B006F1964 /* CoreGraphics.framework */; };
 		C03AFBF419AAA16B006F1964 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C03AFBF319AAA16B006F1964 /* UIKit.framework */; };
-		C03AFBFA19AAA16B006F1964 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C03AFBF819AAA16B006F1964 /* InfoPlist.strings */; };
 		C03AFBFC19AAA16B006F1964 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C03AFBFB19AAA16B006F1964 /* main.m */; };
 		C03AFC0019AAA16B006F1964 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C03AFBFF19AAA16B006F1964 /* AppDelegate.m */; };
 		C03AFC0319AAA16B006F1964 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C03AFC0119AAA16B006F1964 /* Main.storyboard */; };
@@ -35,6 +34,8 @@
 		C03AFC3F19AD6BFD006F1964 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = C03AFC3E19AD6BFD006F1964 /* Boat.m */; };
 		C07B210F19C0D92A00F11AA7 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07B210E19C0D92A00F11AA7 /* StartupViewController.m */; };
 		C09078FF19E59B06007530CF /* UpgraveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09078FE19E59B06007530CF /* UpgraveViewController.m */; };
+		C090790719E5AA1C007530CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C090790919E5AA1C007530CF /* Localizable.strings */; };
+		C090790D19E5AB2D007530CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C090790C19E5AB2D007530CF /* InfoPlist.strings */; };
 		C0C747C119C0F135005DB345 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C747C019C0F135005DB345 /* DBManager.m */; };
 		C0C747C519C4D714005DB345 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C419C4D714005DB345 /* libsqlite3.dylib */; };
 		C0C747C719C4D84B005DB345 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C619C4D84B005DB345 /* MapKit.framework */; };
@@ -69,7 +70,6 @@
 		C03AFBF119AAA16B006F1964 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C03AFBF319AAA16B006F1964 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		C03AFBF719AAA16B006F1964 /* eLog-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "eLog-Info.plist"; sourceTree = "<group>"; };
-		C03AFBF919AAA16B006F1964 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C03AFBFB19AAA16B006F1964 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C03AFBFD19AAA16B006F1964 /* eLog-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "eLog-Prefix.pch"; sourceTree = "<group>"; };
 		C03AFBFE19AAA16B006F1964 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,12 +94,13 @@
 		C03AFC3D19AD6BFD006F1964 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		C03AFC3E19AD6BFD006F1964 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
 		C04DB81019E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
-		C04DB81119E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C04DB81219E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C07B210D19C0D92A00F11AA7 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
 		C07B210E19C0D92A00F11AA7 /* StartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupViewController.m; sourceTree = "<group>"; };
 		C09078FD19E59B06007530CF /* UpgraveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgraveViewController.h; sourceTree = "<group>"; };
 		C09078FE19E59B06007530CF /* UpgraveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgraveViewController.m; sourceTree = "<group>"; };
+		C090790819E5AA1C007530CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		C090790C19E5AB2D007530CF /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		C0C747BF19C0F135005DB345 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C0C747C019C0F135005DB345 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		C0C747C419C4D714005DB345 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -190,6 +191,8 @@
 		C03AFBF619AAA16B006F1964 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C090790219E5A85F007530CF /* fr.lproj */,
+				C090790119E5A850007530CF /* en.lproj */,
 				2A5363CE19DE253C00CE9159 /* arrow_down.png */,
 				2A5363D019DE254600CE9159 /* arrow_left.png */,
 				2A5363D219DE255400CE9159 /* crayon.png */,
@@ -197,9 +200,9 @@
 				2A35EB5E19C0E49A00242695 /* Homarus 2.png */,
 				2A35EB5C19C0E44100242695 /* Homarus 1.png */,
 				C03AFBF719AAA16B006F1964 /* eLog-Info.plist */,
-				C03AFBF819AAA16B006F1964 /* InfoPlist.strings */,
 				C03AFBFB19AAA16B006F1964 /* main.m */,
 				C03AFBFD19AAA16B006F1964 /* eLog-Prefix.pch */,
+				C090790C19E5AB2D007530CF /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -255,6 +258,21 @@
 				C0FF846519DC77010044D47C /* Reachability.h */,
 			);
 			name = external;
+			sourceTree = "<group>";
+		};
+		C090790119E5A850007530CF /* en.lproj */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = en.lproj;
+			sourceTree = "<group>";
+		};
+		C090790219E5A85F007530CF /* fr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				C090790919E5AA1C007530CF /* Localizable.strings */,
+			);
+			name = fr.lproj;
 			sourceTree = "<group>";
 		};
 		C091A64E19DD86770016C86D /* ViewController */ = {
@@ -377,11 +395,12 @@
 				2A5363D319DE255400CE9159 /* crayon.png in Resources */,
 				2A35EB5F19C0E49A00242695 /* Homarus 2.png in Resources */,
 				2A5363CF19DE253C00CE9159 /* arrow_down.png in Resources */,
-				C03AFBFA19AAA16B006F1964 /* InfoPlist.strings in Resources */,
+				C090790719E5AA1C007530CF /* Localizable.strings in Resources */,
 				2A35EB5D19C0E44100242695 /* Homarus 1.png in Resources */,
 				2A35EB6119C0E51F00242695 /* Homarus 3.png in Resources */,
 				2A5363D119DE254600CE9159 /* arrow_left.png in Resources */,
 				C03AFC0319AAA16B006F1964 /* Main.storyboard in Resources */,
+				C090790D19E5AB2D007530CF /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -437,15 +456,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		C03AFBF819AAA16B006F1964 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C03AFBF919AAA16B006F1964 /* en */,
-				C04DB81119E58EE7004BA4E6 /* fr */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		C03AFC0119AAA16B006F1964 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -462,6 +472,14 @@
 				C04DB81219E58EE7004BA4E6 /* fr */,
 			);
 			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		C090790919E5AA1C007530CF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C090790819E5AA1C007530CF /* fr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
