@@ -1,0 +1,20 @@
+/* 
+  Localizable.strings
+  eLog
+
+  Created by nopilas on 2014-10-08.
+  Copyright (c) 2014 nopilas. All rights reserved.
+*/
+
+"Error" = "Erreur";
+"Alert" = "Alerte";
+"Please fill all the field" = "Veuillez remplir tous les champs";
+"Invalide Information" = "Information invalide";
+"The password mismatch" = "Les mots de passe ne correspondent pas";
+"User already exist" = "Usagé déjà existant";
+"User created successfully" = "Usagé créé avec succès";
+"Save" = "Sauvegarde";
+"Save successfully" = "Sauvegarde réussie";
+"Retry again" = "Réessayez";
+"Failed to Get Your Location" = "Impossible d'obtenir votre localisation";
+"Done" = "Terminé";

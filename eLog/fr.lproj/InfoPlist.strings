@@ -1,1 +1,7 @@
 /* Localized versions of Info.plist keys */
+
+"Error" = "Erreur";
+"Alert" = "Alerte";
+"Please fill all the field" = "Veuillez remplir tous les champs";
+"Invalide Information" = "Information invalide";
+"The password mismatch" = "Les mots de passe ne correspondent pas";

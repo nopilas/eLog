@@ -65,85 +65,98 @@
         
 }
 
+// The callback method for an alertView
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index
+{
+    NSString *buttonTitle = [alertView buttonTitleAtIndex:index];
+    if ([buttonTitle isEqualToString:@"Ok"])
+    {
+        if ([_soakDays.text isEqualToString:@""] || [_market.text isEqualToString:@""] || [_sculpin.text isEqualToString:@""] || [_cunner.text isEqualToString:@""] || [_rockCrab.text isEqualToString:@""] || [_hauledTraps.text isEqualToString:@""] || [_canner.text isEqualToString:@""])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error",nil) message:NSLocalizedString(@"All field must be filled", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+        }
+        else
+        {
+            double longitude;
+            double latitude;
+            double totalLongitude;
+            double totalLatitude;
+            
+            if ( longitudeGlobal.count > 0)
+            {
+                for( int i = 0; i< longitudeGlobal.count; i++)
+                {
+                    totalLongitude += [[longitudeGlobal objectAtIndex:i] doubleValue];
+                    totalLatitude += [[latitudeGlobal objectAtIndex:i] doubleValue];
+                }
+                
+                longitude = totalLongitude / longitudeGlobal.count;
+                latitude = totalLatitude / latitudeGlobal.count;
+            }
+            else
+            {
+                longitude = 0;
+                latitude = 0;
+            }
+            
+            NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
+            [dtFormat setDateFormat:@"yyyy-MM-dd"];
+            
+            NSDate *dt = [NSDate date];
+            NSString *dateString = [dtFormat stringFromDate:dt];
+            
+            [[DBManager getSharedInstance ]saveDataDaily:idUserGlobal lineNo:-1 soakDays:[_soakDays.text intValue] market:[_market.text intValue] sculpin:[_sculpin.text intValue] cunner:[_cunner.text intValue] rockCrab:[_rockCrab.text intValue] hauledTraps:[_hauledTraps.text intValue] canner:[_canner.text intValue] Date:dateString longitude:longitude latitude:latitude];
+            
+            _market.text = @"";
+            _soakDays.text = @"";
+            _sculpin.text = @"";
+            _cunner.text = @"";
+            _rockCrab.text = @"";
+            _hauledTraps.text = @"";
+            _canner.text = @"";
+            
+            
+            NSArray* result = [[DBManager getSharedInstance ]SelectDailyInfo:idUserGlobal];
+            
+            NSArray *keys = [NSArray arrayWithObjects:@"a", nil];
+            NSArray *objects = [NSArray arrayWithObjects:result,  nil];
+            NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+            
+            GlobalView *a = [[GlobalView alloc] init ];
+            
+            NSError *requestError = nil;
+            NSData * returnData = [a jsonHttp:trackDictionary address:@"http://nopilas.cuccfree.com/saveDaily.php" error:requestError];
+            
+            NSString *returnString;
+            
+            if (requestError == nil)
+            {
+                returnString = [[NSString alloc] initWithBytes:[returnData bytes] length:[returnData length] encoding:NSUTF8StringEncoding];
+                NSLog(@"returnString: %@", returnString);
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Save", nil) message:NSLocalizedString(@"Save successfully", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                
+                // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
+                [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
+                
+            }
+            else
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Retry again", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                NSLog(@"NSURLConnection sendSynchronousRequest error: %@", requestError);
+            }
+        }
+    }
+}
+
 - (IBAction)dailySave:(id)sender
 {
-    if ([_soakDays.text isEqualToString:@""] || [_market.text isEqualToString:@""] || [_sculpin.text isEqualToString:@""] || [_cunner.text isEqualToString:@""] || [_rockCrab.text isEqualToString:@""] || [_hauledTraps.text isEqualToString:@""] || [_canner.text isEqualToString:@""])
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"All field must be filled" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-        [alert show];
-    }
-    else
-    {
-        double longitude;
-        double latitude;
-        double totalLongitude;
-        double totalLatitude;
-        
-        if ( longitudeGlobal.count > 0)
-        {
-            for( int i = 0; i< longitudeGlobal.count; i++)
-            {
-                totalLongitude += [[longitudeGlobal objectAtIndex:i] doubleValue];
-                totalLatitude += [[latitudeGlobal objectAtIndex:i] doubleValue];
-            }
-        
-            longitude = totalLongitude / longitudeGlobal.count;
-            latitude = totalLatitude / latitudeGlobal.count;
-        }
-        else
-        {
-            longitude = 0;
-            latitude = 0;
-        }
-        
-        NSDateFormatter *dtFormat = [[NSDateFormatter alloc]init];
-        [dtFormat setDateFormat:@"yyyy-MM-dd"];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Question", nil) message:NSLocalizedString(@"Please fill all the field", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
     
-        NSDate *dt = [NSDate date];
-        NSString *dateString = [dtFormat stringFromDate:dt];
-        
-        [[DBManager getSharedInstance ]saveDataDaily:idUserGlobal lineNo:-1 soakDays:[_soakDays.text intValue] market:[_market.text intValue] sculpin:[_sculpin.text intValue] cunner:[_cunner.text intValue] rockCrab:[_rockCrab.text intValue] hauledTraps:[_hauledTraps.text intValue] canner:[_canner.text intValue] Date:dateString longitude:longitude latitude:latitude];
-
-        _market.text = @"";
-        _soakDays.text = @"";
-        _sculpin.text = @"";
-        _cunner.text = @"";
-        _rockCrab.text = @"";
-        _hauledTraps.text = @"";
-        _canner.text = @"";
-             
-        
-        NSArray* result = [[DBManager getSharedInstance ]SelectDailyInfo:idUserGlobal];
-     
-        NSArray *keys = [NSArray arrayWithObjects:@"a", nil];
-        NSArray *objects = [NSArray arrayWithObjects:result,  nil];
-        NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-    
-        GlobalView *a = [[GlobalView alloc] init ];
-    
-        NSError *requestError = nil;
-        NSData * returnData = [a jsonHttp:trackDictionary address:@"http://nopilas.cuccfree.com/saveDaily.php" error:requestError];
-    
-        NSString *returnString;
-    
-        if (requestError == nil)
-        {
-            returnString = [[NSString alloc] initWithBytes:[returnData bytes] length:[returnData length] encoding:NSUTF8StringEncoding];
-            NSLog(@"returnString: %@", returnString);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save" message:@"Save successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            
-            // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
-            [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
-        
-        }
-        else
-        {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Retry again" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            NSLog(@"NSURLConnection sendSynchronousRequest error: %@", requestError);
-        }
-    }
 }
 
 - (void) dismissKeyboard

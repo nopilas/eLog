@@ -75,7 +75,7 @@ NSData *receivedData;;
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index
 {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:index];
-    if ([buttonTitle isEqualToString:@"Login"])
+    if ([buttonTitle isEqualToString:NSLocalizedString(@"Login", nil)])
     {
         [self performSegueWithIdentifier:@"Segue.push.alert" sender:self];
     }
@@ -85,12 +85,12 @@ NSData *receivedData;;
 {
     if ([_Login.text isEqualToString:@""] || [_Password.text isEqualToString:@""] || [_RepeatPassword.text isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"Please Fill all the field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"Please fill all the field",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else if (![_Password.text isEqualToString: _RepeatPassword.text])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"The password mismatch" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"The password mismatch",nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -124,7 +124,7 @@ NSData *receivedData;;
         if ([returnString isEqualToString:@"0"] || [returnString isEqualToString:@"0\t"])
         {
             // invalid information
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"User already exist" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User already exist", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
@@ -139,7 +139,7 @@ NSData *receivedData;;
             
             idUserGlobal = [returnString intValue];
             
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"User created sucessfully" delegate:self cancelButtonTitle:@"Login" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User created successfully",nil) delegate:self cancelButtonTitle:@"Login" otherButtonTitles:nil, nil];
             
             [alert show];
         }

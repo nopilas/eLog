@@ -37,28 +37,13 @@
     {
         if ([_userNameTextField.text isEqualToString:@""] || [_passwordTextField.text isEqualToString:@""])
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"Please Fill all the field" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"Invalide Information", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
             return NO;
-        }
-        int idUser = [[DBManager getSharedInstance ]SelectCustomerInfo:_userNameTextField.text password:_passwordTextField.text];
-        
-        if (idUser != -1)
-        {
-            //KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"LoginData" accessGroup:nil];
-            
-            //[keychain setObject:[NSString stringWithFormat:@"%d", idUser] forKey:(__bridge id)(kSecAttrComment)];
-            idUserGlobal = idUser;
-            return YES;
-          
         }
         else
         {
-            // invalid information
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"alert" message:@"Invalide Information" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            return NO;
-        
+            return YES;
         }
     }
     else

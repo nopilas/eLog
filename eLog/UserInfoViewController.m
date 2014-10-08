@@ -58,7 +58,7 @@ UIPickerView * myPickerView;
     myPickerView.delegate = self;
     myPickerView.showsSelectionIndicator = YES;
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc]
-                                   initWithTitle:@"Done" style:UIBarButtonItemStyleDone
+                                   initWithTitle:NSLocalizedString(@"Done",nil) style:UIBarButtonItemStyleDone
                                    target:self action:@selector(done)];
     UIToolbar *toolBar = [[UIToolbar alloc]initWithFrame:
                           CGRectMake(0, self.view.frame.size.height-
@@ -152,7 +152,7 @@ numberOfRowsInComponent:(NSInteger)component
 {
     if ([_licenceHolder.text isEqualToString:@""] || [_lobsterLicence.text isEqualToString:@""] || [_vesselNumber.text isEqualToString:@""] || [_vesselName.text isEqualToString:@""] || [_zone.text isEqualToString:@""])
     {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"All field must be filled" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Please fill all the field", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
         [alert show];
     }
     else
@@ -174,12 +174,12 @@ numberOfRowsInComponent:(NSInteger)component
         {
             returnString = [[NSString alloc] initWithBytes:[returnData bytes] length:[returnData length] encoding:NSUTF8StringEncoding];
             NSLog(@"returnString: %@", returnString);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save" message:@"Save successfully" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Save", nil) message:NSLocalizedString(@"Save successfully", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         else
         {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[requestError localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:[requestError localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
             [alert show];
         }
         
