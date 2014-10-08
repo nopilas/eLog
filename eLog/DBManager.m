@@ -236,9 +236,10 @@ static sqlite3_stmt *statement = nil;
                 NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
                                 
                 [resultArray addObject:trackDictionary];
-                sqlite3_reset(statement);
+
                 
             }
+            sqlite3_reset(statement);
             return resultArray;
         }
         else

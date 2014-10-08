@@ -67,7 +67,7 @@ BOOL update = YES;
     }];
     
     
-    location = self;
+    locationUIView = self;
     
     
     // Do any additional setup after loading the view.
