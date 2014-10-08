@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 extern int idUserGlobal;
+extern NSMutableArray *longitudeGlobal;
+extern NSMutableArray *latitudeGlobal;
 
 @interface GlobalView : NSObject 
 -(BOOL)isInternetActive;

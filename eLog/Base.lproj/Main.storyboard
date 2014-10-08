@@ -38,16 +38,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-dc-D8E">
-                                <rect key="frame" x="93" y="364" width="135" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
-                                <state key="normal" title="Start">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="StartButton:" destination="31k-x1-szb" eventType="touchUpInside" id="IuZ-mh-3D5"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Fishing Lobsters" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Xi8-5u-GGq">
                                 <rect key="frame" x="15" y="30" width="290" height="61"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
@@ -62,6 +52,16 @@
                                 <rect key="frame" x="79" y="119" width="162" height="228"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="0.59999999999999998" height="0.59999999999999964"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mxg-dc-D8E">
+                                <rect key="frame" x="93" y="364" width="135" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="StartButton:" destination="31k-x1-szb" eventType="touchUpInside" id="IuZ-mh-3D5"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -267,7 +267,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Homarus 1.png" translatesAutoresizingMaskIntoConstraints="NO" id="1ph-y9-AQ6">
-                                <rect key="frame" x="0.0" y="30" width="320" height="452"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="452"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f49-ii-3BI">
                                 <rect key="frame" x="139" y="28" width="42" height="29"/>
@@ -300,15 +300,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYQ-39-5eN">
-                                <rect key="frame" x="123" y="287" width="74" height="30"/>
-                                <state key="normal" title="Save Info">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="saveUserInfo:" destination="rop-BX-cyE" eventType="touchUpInside" id="Wr7-Ro-ae4"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Vessel Number (VRN)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HHy-lS-Yvy">
                                 <rect key="frame" x="75" y="181" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -317,6 +308,15 @@
                                     <action selector="saisieReturn:" destination="i0l-s4-TtK" eventType="editingDidEndOnExit" id="Yc7-h0-4DV"/>
                                 </connections>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OYQ-39-5eN">
+                                <rect key="frame" x="123" y="257" width="74" height="30"/>
+                                <state key="normal" title="Save Info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveUserInfo:" destination="rop-BX-cyE" eventType="touchUpInside" id="Wr7-Ro-ae4"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -350,6 +350,7 @@
                         <segue destination="ahA-1c-a03" kind="relationship" relationship="viewControllers" id="VG8-UC-7hQ"/>
                         <segue destination="9KJ-lc-hG8" kind="relationship" relationship="viewControllers" id="TKp-H8-1ue"/>
                         <segue destination="EON-03-Ude" kind="relationship" relationship="viewControllers" id="JMd-WG-HcY"/>
+                        <segue destination="wiD-kv-2FX" kind="relationship" relationship="viewControllers" id="rQN-F7-dwz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c9o-Uo-FZZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -374,7 +375,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8Y-h4-mED" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1734" y="243"/>
+            <point key="canvasLocation" x="1778" y="-167"/>
         </scene>
         <!--Daily-->
         <scene sceneID="EeL-rp-KrT">
@@ -406,11 +407,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hauled Traps" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-vx-xtv">
-                                <rect key="frame" x="75" y="51" width="170" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                            </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Canner" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YUm-RV-dyj">
                                 <rect key="frame" x="75" y="160" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -431,15 +427,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-5H-buH">
-                                <rect key="frame" x="124" y="389" width="72" height="30"/>
-                                <state key="normal" title="Daily Save">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="dailySave:" destination="ahA-1c-a03" eventType="touchUpInside" id="WwL-op-o2M"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Soak Days" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vfi-Jp-rsi">
                                 <rect key="frame" x="75" y="89" width="170" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -450,19 +437,57 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Hauled Traps" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6CI-vx-xtv">
+                                <rect key="frame" x="75" y="51" width="170" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JB0-5H-buH">
+                                <rect key="frame" x="124" y="389" width="72" height="30"/>
+                                <state key="normal" title="Daily Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="dailySave:" destination="ahA-1c-a03" eventType="touchUpInside" id="WwL-op-o2M"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Daily" image="arrow_down.png" id="J05-tw-OET"/>
                     <connections>
-                        <outlet property="line" destination="6CI-vx-xtv" id="4F5-A3-Jth"/>
-                        <outlet property="nbLobster" destination="YUm-RV-dyj" id="qlu-iP-1XR"/>
-                        <outlet property="nbTraps" destination="vfi-Jp-rsi" id="H1M-RM-1Zt"/>
+                        <outlet property="canner" destination="YUm-RV-dyj" id="Puf-CZ-2EZ"/>
+                        <outlet property="cunner" destination="G6N-Dh-w9J" id="54t-x7-PDN"/>
+                        <outlet property="dailySave" destination="JB0-5H-buH" id="8bu-tN-aBv"/>
+                        <outlet property="hauledTraps" destination="6CI-vx-xtv" id="30g-LY-O8a"/>
+                        <outlet property="market" destination="45c-Ff-9Ob" id="iIn-5S-EXx"/>
+                        <outlet property="rockCrab" destination="d7H-8N-HJm" id="hde-te-75x"/>
+                        <outlet property="sculpin" destination="JTA-pf-v7w" id="RaI-2I-qwM"/>
+                        <outlet property="soakDays" destination="vfi-Jp-rsi" id="sJK-zs-H3a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0Im-bh-Z73" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1394" y="624"/>
+        </scene>
+        <!--Upgrade-->
+        <scene sceneID="bAa-zb-4zh">
+            <objects>
+                <viewController id="wiD-kv-2FX" customClass="UpgraveViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="0da-ZR-TAd"/>
+                        <viewControllerLayoutGuide type="bottom" id="VJq-5i-9Iu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dik-xp-Uw6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Upgrade" image="crayon.png" id="yp6-Bg-yit"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufe-Ez-44i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1785" y="624"/>
         </scene>
         <!--Create User View Controller-->
         <scene sceneID="Anr-5B-VEX">
@@ -550,7 +575,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="DAo-Fj-kbT"/>
         <segue reference="AMH-xW-3oA"/>
-        <segue reference="jPQ-Mo-GSB"/>
     </inferredMetricsTieBreakers>
 </document>

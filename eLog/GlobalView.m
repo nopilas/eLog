@@ -17,6 +17,8 @@
 @implementation GlobalView
 
 int idUserGlobal;
+NSMutableArray *longitudeGlobal;
+NSMutableArray *latitudeGlobal;
 
 +(void)textFieldDidBeginEditing:(UITextField *)textField UIview:(UIViewController *)UIview distance:(int)distance
 {

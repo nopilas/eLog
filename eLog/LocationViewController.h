@@ -15,4 +15,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (nonatomic, strong) NSTimer *updateTimer;
+@property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
 @end

@@ -8,14 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DailyViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UITextField *line;
-@property (weak, nonatomic) IBOutlet UITextField *nbTraps;
-@property (weak, nonatomic) IBOutlet UITextField *nbLobster;
-- (IBAction)nextLine:(id)sender;
+@interface DailyViewController : UIViewController <UITextFieldDelegate>
+@property (weak, nonatomic) IBOutlet UITextField *soakDays;
+@property (weak, nonatomic) IBOutlet UITextField *market;
+@property (weak, nonatomic) IBOutlet UITextField *sculpin;
+@property (weak, nonatomic) IBOutlet UITextField *cunner;
+@property (weak, nonatomic) IBOutlet UITextField *rockCrab;
+@property (weak, nonatomic) IBOutlet UITextField *hauledTraps;
+@property (weak, nonatomic) IBOutlet UIButton *dailySave;
+@property (weak, nonatomic) IBOutlet UITextField *canner;
 - (IBAction)dailySave:(id)sender;
-
-
-
 @end

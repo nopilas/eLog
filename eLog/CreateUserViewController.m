@@ -116,6 +116,9 @@ NSData *receivedData;;
         else
         {
             NSLog(@"NSURLConnection sendSynchronousRequest error: %@", requestError);
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[requestError localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+            [alert show];
+            return;
         }
         
         if ([returnString isEqualToString:@"0"] || [returnString isEqualToString:@"0\t"])

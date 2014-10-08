@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "GlobalView.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    longitudeGlobal = [[NSMutableArray alloc] init];
+    latitudeGlobal = [[NSMutableArray alloc]init];
     // Override point for customization after application launch.
     return YES;
 }

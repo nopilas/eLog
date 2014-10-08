@@ -34,6 +34,7 @@
 		C03AFC3919AD52CD006F1964 /* LocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C03AFC3819AD52CD006F1964 /* LocationViewController.m */; };
 		C03AFC3F19AD6BFD006F1964 /* Boat.m in Sources */ = {isa = PBXBuildFile; fileRef = C03AFC3E19AD6BFD006F1964 /* Boat.m */; };
 		C07B210F19C0D92A00F11AA7 /* StartupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C07B210E19C0D92A00F11AA7 /* StartupViewController.m */; };
+		C09078FF19E59B06007530CF /* UpgraveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09078FE19E59B06007530CF /* UpgraveViewController.m */; };
 		C0C747C119C0F135005DB345 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C747C019C0F135005DB345 /* DBManager.m */; };
 		C0C747C519C4D714005DB345 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C419C4D714005DB345 /* libsqlite3.dylib */; };
 		C0C747C719C4D84B005DB345 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C619C4D84B005DB345 /* MapKit.framework */; };
@@ -92,8 +93,13 @@
 		C03AFC3819AD52CD006F1964 /* LocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationViewController.m; sourceTree = "<group>"; };
 		C03AFC3D19AD6BFD006F1964 /* Boat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Boat.h; sourceTree = "<group>"; };
 		C03AFC3E19AD6BFD006F1964 /* Boat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Boat.m; sourceTree = "<group>"; };
+		C04DB81019E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		C04DB81119E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		C04DB81219E58EE7004BA4E6 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C07B210D19C0D92A00F11AA7 /* StartupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartupViewController.h; sourceTree = "<group>"; };
 		C07B210E19C0D92A00F11AA7 /* StartupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartupViewController.m; sourceTree = "<group>"; };
+		C09078FD19E59B06007530CF /* UpgraveViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpgraveViewController.h; sourceTree = "<group>"; };
+		C09078FE19E59B06007530CF /* UpgraveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgraveViewController.m; sourceTree = "<group>"; };
 		C0C747BF19C0F135005DB345 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C0C747C019C0F135005DB345 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		C0C747C419C4D714005DB345 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -268,6 +274,8 @@
 				C03AFC2819AAA907006F1964 /* LoginViewController.m */,
 				C03AFC2A19AC099D006F1964 /* CreateUserViewController.h */,
 				C03AFC2B19AC099D006F1964 /* CreateUserViewController.m */,
+				C09078FD19E59B06007530CF /* UpgraveViewController.h */,
+				C09078FE19E59B06007530CF /* UpgraveViewController.m */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -347,6 +355,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = C03AFBE319AAA16B006F1964;
 			productRefGroup = C03AFBED19AAA16B006F1964 /* Products */;
@@ -404,6 +413,7 @@
 				C03AFC2F19AD4370006F1964 /* KeychainItemWrapper.m in Sources */,
 				C0FF846719DC77280044D47C /* Reachability.m in Sources */,
 				C016E14F19DC88A400383637 /* UserInfoViewController.m in Sources */,
+				C09078FF19E59B06007530CF /* UpgraveViewController.m in Sources */,
 				C03AFC3919AD52CD006F1964 /* LocationViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +441,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C03AFBF919AAA16B006F1964 /* en */,
+				C04DB81119E58EE7004BA4E6 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -439,6 +450,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C03AFC0219AAA16B006F1964 /* Base */,
+				C04DB81019E58EE7004BA4E6 /* fr */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -447,6 +459,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				C03AFC1B19AAA16B006F1964 /* en */,
+				C04DB81219E58EE7004BA4E6 /* fr */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";

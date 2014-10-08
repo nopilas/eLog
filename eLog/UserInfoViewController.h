@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UserInfoViewController : UIViewController
+@interface UserInfoViewController : UIViewController <UITextFieldDelegate, UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *licenceHolder;
 @property (weak, nonatomic) IBOutlet UITextField *lobsterLicence;
 @property (weak, nonatomic) IBOutlet UITextField *vesselName;
@@ -17,3 +17,4 @@
 @property (weak, nonatomic) IBOutlet UITextField *zone;
 //- (void) retrieveData;
 @end
+

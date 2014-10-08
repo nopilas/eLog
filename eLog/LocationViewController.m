@@ -10,6 +10,7 @@
 #import "KeychainItemWrapper.h"
 #import "Boat.h"
 #import "DBManager.h"
+#import "GlobalView.h"
 
 @interface LocationViewController ()
 
@@ -18,6 +19,8 @@
 @implementation LocationViewController
 CLLocationManager *locationManager;
 NSString* userId;
+
+BOOL update = YES;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -52,8 +55,27 @@ NSString* userId;
     [_mapView setZoomEnabled:YES];
     [_mapView setScrollEnabled:YES];
     
+    self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:100
+                                                        target:self
+                                                      selector:@selector(updateNextPosition)
+                                                      userInfo:nil
+                                                       repeats:YES];
+    self.backgroundTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
+        NSLog(@"Background handler called. Not running background tasks anymore.");
+        [[UIApplication sharedApplication] endBackgroundTask:self.backgroundTask];
+        self.backgroundTask = UIBackgroundTaskInvalid;
+    }];
     
     // Do any additional setup after loading the view.
+}
+
+-(void)updateNextPosition{
+    @autoreleasepool
+    {
+        update = YES;
+        
+        // this will be executed no matter app is in foreground or background
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,6 +100,7 @@ NSString* userId;
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     
+    
     CLLocation *newLocation = [locations lastObject];
     CLLocation *oldLocation;
     if (locations.count > 1)
@@ -96,6 +119,18 @@ NSString* userId;
         
         MKCoordinateRegion region = MKCoordinateRegionMakeWithDistance(newLocation.coordinate, 800, 800);
         [_mapView setRegion:[_mapView regionThatFits:region] animated:YES];
+    }
+    
+    if (update == YES)
+    {
+        NSNumber *num = [NSNumber numberWithFloat:newLocation.coordinate.longitude];
+        [longitudeGlobal addObject:num];
+        
+        num = [NSNumber numberWithFloat:newLocation.coordinate.latitude];
+        [latitudeGlobal addObject:num];
+        
+        update = NO;
+         
     }
 }
 
