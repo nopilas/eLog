@@ -6,28 +6,28 @@
 "45c-Ff-9Ob.placeholder" = "Marché";
 
 /* Class = "IBUITextField"; text = "Name"; ObjectID = "5M2-RL-fjR"; */
-"5M2-RL-fjR.text" = "Name";
+"5M2-RL-fjR.text" = "Nom";
 
 /* Class = "IBUITextField"; placeholder = "Hauled Traps"; ObjectID = "6CI-vx-xtv"; */
-"6CI-vx-xtv.placeholder" = "Hauled Traps";
+"6CI-vx-xtv.placeholder" = "Nb. Casiers";
 
 /* Class = "IBUITextField"; placeholder = "Lobster Licence no."; ObjectID = "8Ol-XK-dC5"; */
-"8Ol-XK-dC5.placeholder" = "No licence homard";
+"8Ol-XK-dC5.placeholder" = "No. licence";
 
 /* Class = "IBUITextField"; placeholder = "Login"; ObjectID = "9OT-rs-kQ6"; */
 "9OT-rs-kQ6.placeholder" = "Compte";
 
 /* Class = "IBUITextField"; placeholder = "Cunner"; ObjectID = "G6N-Dh-w9J"; */
-"G6N-Dh-w9J.placeholder" = "Cunner";
+"G6N-Dh-w9J.placeholder" = "Tanche";
 
 /* Class = "IBUITextField"; placeholder = "Vessel Number (VRN)"; ObjectID = "HHy-lS-Yvy"; */
-"HHy-lS-Yvy.placeholder" = "Nom bâteau (VRN)";
+"HHy-lS-Yvy.placeholder" = "No. d'enr. du bâteau (NEB)";
 
 /* Class = "IBUITextField"; text = "No."; ObjectID = "HaO-dK-wPh"; */
 "HaO-dK-wPh.text" = "No.";
 
 /* Class = "IBUILabel"; text = "Other sp."; ObjectID = "HeA-aq-YCK"; */
-"HeA-aq-YCK.text" = "Autres espèces";
+"HeA-aq-YCK.text" = "Autres sp.";
 
 /* Class = "IBUITabBarItem"; title = "Daily"; ObjectID = "J05-tw-OET"; */
 "J05-tw-OET.title" = "Quotidien";
@@ -36,7 +36,7 @@
 "JB0-5H-buH.normalTitle" = "Sauvegarde journalière";
 
 /* Class = "IBUITextField"; placeholder = "Sculpin"; ObjectID = "JTA-pf-v7w"; */
-"JTA-pf-v7w.placeholder" = "Sculpin";
+"JTA-pf-v7w.placeholder" = "Chaboisseau";
 
 /* Class = "IBUITextField"; placeholder = "Zone"; ObjectID = "NtS-Ev-zkc"; */
 "NtS-Ev-zkc.placeholder" = "Zone";
@@ -54,19 +54,19 @@
 "PIP-N9-30Z.text" = "latitude chiffre";
 
 /* Class = "IBUILabel"; text = "Traps"; ObjectID = "Q56-Lj-gF9"; */
-"Q56-Lj-gF9.text" = "Pièges";
+"Q56-Lj-gF9.text" = "Casiers";
 
 /* Class = "IBUITextField"; placeholder = "Licence Holder Name"; ObjectID = "QOP-me-Dgw"; */
-"QOP-me-Dgw.placeholder" = "Titulaire licence";
+"QOP-me-Dgw.placeholder" = "Détenteur du permis";
 
 /* Class = "IBUITextField"; placeholder = "Repeat password"; ObjectID = "QzU-il-6C2"; */
-"QzU-il-6C2.placeholder" = "Répété mot de passe";
+"QzU-il-6C2.placeholder" = "Répéter mot de passe";
 
 /* Class = "IBUITextField"; text = "Fishing Lobsters"; ObjectID = "Xi8-5u-GGq"; */
-"Xi8-5u-GGq.text" = "Homards pêchés";
+"Xi8-5u-GGq.text" = "Pêche au Homard";
 
 /* Class = "IBUITextField"; placeholder = "Canner"; ObjectID = "YUm-RV-dyj"; */
-"YUm-RV-dyj.placeholder" = "Canner";
+"YUm-RV-dyj.placeholder" = "Petit";
 
 /* Class = "IBUITabBarItem"; title = "Settings"; ObjectID = "Yjz-eX-r9l"; */
 "Yjz-eX-r9l.title" = "Paramètres";
@@ -75,16 +75,16 @@
 "aNi-XQ-jF9.text" = "Longitude:";
 
 /* Class = "IBUITextField"; placeholder = "Vessel Name"; ObjectID = "bOf-ud-Z1y"; */
-"bOf-ud-Z1y.placeholder" = "Nom bâteau";
+"bOf-ud-Z1y.placeholder" = "Nom de bâteau";
 
 /* Class = "IBUITextField"; placeholder = "Rock crab"; ObjectID = "d7H-8N-HJm"; */
-"d7H-8N-HJm.placeholder" = "Crabe";
+"d7H-8N-HJm.placeholder" = "Crabe Commun";
 
 /* Class = "IBUILabel"; text = "Latitude:"; ObjectID = "dKw-er-ntp"; */
 "dKw-er-ntp.text" = "Latitude:";
 
 /* Class = "IBUIButton"; normalTitle = "Create Account"; ObjectID = "dvh-KU-4hQ"; */
-"dvh-KU-4hQ.normalTitle" = "Création compte";
+"dvh-KU-4hQ.normalTitle" = "Créer compte";
 
 /* Class = "IBUITextField"; text = "Length"; ObjectID = "dyJ-kl-xbi"; */
 "dyJ-kl-xbi.text" = "Longueur";
@@ -102,22 +102,22 @@
 "mxg-dc-D8E.normalTitle" = "Démarrer";
 
 /* Class = "IBUITextField"; text = "Fishing Lobsters"; ObjectID = "pmG-BJ-kbn"; */
-"pmG-BJ-kbn.text" = "Homards pêchés";
+"pmG-BJ-kbn.text" = "Pêche au Homard";
 
 /* Class = "IBUITextField"; text = "New Brunswick"; ObjectID = "rrQ-1c-g7H"; */
 "rrQ-1c-g7H.text" = "Nouveau Brunswick";
 
 /* Class = "IBUITextField"; placeholder = "Soak Days"; ObjectID = "vfi-Jp-rsi"; */
-"vfi-Jp-rsi.placeholder" = "Soak Days";
+"vfi-Jp-rsi.placeholder" = "Jours d'immersion";
 
 /* Class = "IBUILabel"; text = "Lobsters"; ObjectID = "voZ-c2-20w"; */
-"voZ-c2-20w.text" = "Homard";
+"voZ-c2-20w.text" = "Homards";
 
 /* Class = "IBUILabel"; text = "longitude chiffre"; ObjectID = "x7g-bR-Prf"; */
 "x7g-bR-Prf.text" = "longitude chiffre";
 
 /* Class = "IBUIButton"; normalTitle = "Create Account"; ObjectID = "xCB-fP-0Y8"; */
-"xCB-fP-0Y8.normalTitle" = "Création compte";
+"xCB-fP-0Y8.normalTitle" = "Créer compte";
 
 /* Class = "IBUIButton"; normalTitle = "Login"; ObjectID = "xzo-GE-12g"; */
 "xzo-GE-12g.normalTitle" = "Connexion";
