@@ -11,10 +11,12 @@
 #import <MapKit/MapKit.h>
 #import <Mapkit/MKAnnotation.h>
 
-@interface LocationViewController : UIViewController <CLLocationManagerDelegate>
+@interface LocationViewController : UIViewController <CLLocationManagerDelegate, MKMapViewDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *latitudeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *longitudeLabel;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *updateTimer;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+
+-(void)stopTimer;
 @end

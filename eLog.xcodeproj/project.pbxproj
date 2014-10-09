@@ -36,6 +36,7 @@
 		C09078FF19E59B06007530CF /* UpgraveViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C09078FE19E59B06007530CF /* UpgraveViewController.m */; };
 		C090790719E5AA1C007530CF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = C090790919E5AA1C007530CF /* Localizable.strings */; };
 		C090790D19E5AB2D007530CF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C090790C19E5AB2D007530CF /* InfoPlist.strings */; };
+		C090791019E5BCBC007530CF /* Thread.m in Sources */ = {isa = PBXBuildFile; fileRef = C090790F19E5BCBC007530CF /* Thread.m */; };
 		C0C747C119C0F135005DB345 /* DBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C0C747C019C0F135005DB345 /* DBManager.m */; };
 		C0C747C519C4D714005DB345 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C419C4D714005DB345 /* libsqlite3.dylib */; };
 		C0C747C719C4D84B005DB345 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0C747C619C4D84B005DB345 /* MapKit.framework */; };
@@ -101,6 +102,8 @@
 		C09078FE19E59B06007530CF /* UpgraveViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UpgraveViewController.m; sourceTree = "<group>"; };
 		C090790819E5AA1C007530CF /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		C090790C19E5AB2D007530CF /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		C090790E19E5BCBC007530CF /* Thread.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Thread.h; sourceTree = "<group>"; };
+		C090790F19E5BCBC007530CF /* Thread.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Thread.m; sourceTree = "<group>"; };
 		C0C747BF19C0F135005DB345 /* DBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBManager.h; sourceTree = "<group>"; };
 		C0C747C019C0F135005DB345 /* DBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBManager.m; sourceTree = "<group>"; };
 		C0C747C419C4D714005DB345 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
@@ -236,6 +239,8 @@
 				C03AFBFF19AAA16B006F1964 /* AppDelegate.m */,
 				C03AFC3D19AD6BFD006F1964 /* Boat.h */,
 				C03AFC3E19AD6BFD006F1964 /* Boat.m */,
+				C090790E19E5BCBC007530CF /* Thread.h */,
+				C090790F19E5BCBC007530CF /* Thread.m */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -430,6 +435,7 @@
 				C03AFC3F19AD6BFD006F1964 /* Boat.m in Sources */,
 				C07B210F19C0D92A00F11AA7 /* StartupViewController.m in Sources */,
 				C03AFC2F19AD4370006F1964 /* KeychainItemWrapper.m in Sources */,
+				C090791019E5BCBC007530CF /* Thread.m in Sources */,
 				C0FF846719DC77280044D47C /* Reachability.m in Sources */,
 				C016E14F19DC88A400383637 /* UserInfoViewController.m in Sources */,
 				C09078FF19E59B06007530CF /* UpgraveViewController.m in Sources */,

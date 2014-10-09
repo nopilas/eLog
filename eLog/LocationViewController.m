@@ -54,6 +54,7 @@ BOOL update = YES;
     [_mapView setMapType:MKMapTypeStandard];
     [_mapView setZoomEnabled:YES];
     [_mapView setScrollEnabled:YES];
+    _mapView.delegate = self;
     
     self.updateTimer = [NSTimer scheduledTimerWithTimeInterval:100
                                                         target:self
@@ -66,7 +67,21 @@ BOOL update = YES;
         self.backgroundTask = UIBackgroundTaskInvalid;
     }];
     
+    
+    locationUIView = self;
+    
+    
     // Do any additional setup after loading the view.
+}
+
+
+
+-(void)stopTimer
+{
+    [self.updateTimer invalidate ];
+    update = NO;
+    [longitudeGlobal removeAllObjects];
+    [latitudeGlobal removeAllObjects];
 }
 
 -(void)updateNextPosition{
@@ -96,13 +111,43 @@ BOOL update = YES;
     [_mapView setRegion:region animated:YES];
 }
 
+- (void)drawRangeRings: (CLLocationCoordinate2D) where {
+    // first, I clear out any previous overlays:
+    [_mapView removeOverlays: [_mapView overlays]];
+
+    MKCircle* outerCircle = [MKCircle circleWithCenterCoordinate: where radius: 100];
+    outerCircle.title = @"Stretch Range";
+    MKCircle* innerCircle = [MKCircle circleWithCenterCoordinate: where radius: (100 / 1.425f)];
+    innerCircle.title = @"Safe Range";
+    
+    [_mapView addOverlay: outerCircle];
+    [_mapView addOverlay: innerCircle];
+}
+
+- (MKOverlayView *)mapView:(MKMapView *)mapView viewForOverlay:(id <MKOverlay>)overlay {
+    MKCircle* circle = overlay;
+    MKCircleView* circleView = [[MKCircleView alloc] initWithCircle: circle];
+    if ([circle.title compare: @"Safe Range"] == NSOrderedSame) {
+        circleView.fillColor = [UIColor colorWithRed:1.0 green:1.0 blue:1.0 alpha:0.25];
+        circleView.strokeColor = [UIColor whiteColor];
+    } else {
+        circleView.fillColor = [UIColor colorWithRed:0.5 green:0.5 blue:0.5 alpha:0.25];
+        circleView.strokeColor = [UIColor grayColor];
+        
+    }
+    circleView.lineWidth = 2.0;
+    
+    return circleView;
+}
+
 
 -(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     
-    
     CLLocation *newLocation = [locations lastObject];
     CLLocation *oldLocation;
+
+
     if (locations.count > 1)
     {
         oldLocation = [locations objectAtIndex:locations.count-2];
@@ -130,6 +175,8 @@ BOOL update = YES;
         [latitudeGlobal addObject:num];
         
         update = NO;
+        
+        [self drawRangeRings:CLLocationCoordinate2DMake(newLocation.coordinate.latitude, newLocation.coordinate.longitude)];
          
     }
 }

@@ -10,6 +10,7 @@
 #import "DBManager.h"
 #import "KeychainItemWrapper.h"
 #import "GlobalView.h"
+#import "LocationViewController.h"
 
 @interface DailyViewController ()
 
@@ -70,7 +71,7 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)index
 {
     NSString *buttonTitle = [alertView buttonTitleAtIndex:index];
-    if ([buttonTitle isEqualToString:@"Ok"])
+    if ([buttonTitle isEqualToString:NSLocalizedString(@"Save", nil)])
     {
         if ([_soakDays.text isEqualToString:@""] || [_market.text isEqualToString:@""] || [_sculpin.text isEqualToString:@""] || [_cunner.text isEqualToString:@""] || [_rockCrab.text isEqualToString:@""] || [_hauledTraps.text isEqualToString:@""] || [_canner.text isEqualToString:@""])
         {
@@ -141,6 +142,8 @@
                 // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
                 [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
                 
+                if ( locationUIView != nil )
+                    [(LocationViewController *) locationUIView stopTimer];
             }
             else
             {
@@ -154,7 +157,7 @@
 
 - (IBAction)dailySave:(id)sender
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Question", nil) message:NSLocalizedString(@"Please fill all the field", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Question", nil) message:NSLocalizedString(@"Do you really want to save this info ?", nil) delegate:self cancelButtonTitle:NSLocalizedString(@"Save", nil) otherButtonTitles:nil, nil];
     [alert show];
     
 }

@@ -19,6 +19,7 @@
 int idUserGlobal;
 NSMutableArray *longitudeGlobal;
 NSMutableArray *latitudeGlobal;
+UIViewController *locationUIView;
 
 +(void)textFieldDidBeginEditing:(UITextField *)textField UIview:(UIViewController *)UIview distance:(int)distance
 {

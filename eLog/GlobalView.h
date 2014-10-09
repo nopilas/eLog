@@ -11,6 +11,8 @@
 extern int idUserGlobal;
 extern NSMutableArray *longitudeGlobal;
 extern NSMutableArray *latitudeGlobal;
+extern UIViewController *locationUIView;
+
 
 @interface GlobalView : NSObject 
 -(BOOL)isInternetActive;
