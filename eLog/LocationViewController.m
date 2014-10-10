@@ -70,6 +70,13 @@ BOOL update = YES;
     
     locationUIView = self;
     
+    NSDictionary *dic = [[DBManager getSharedInstance ] SelectDataUser:idUserGlobal];
+ 
+    _licenceHolderName.text = [dic valueForKey:@"licenceHolder"];
+    _lobsterLicenceNo.text = [dic valueForKey:@"lobsterLicence"];
+    _vesselName.text = [dic valueForKey:@"vesselName"];
+    _vesselNumber.text = [dic valueForKey:@"vesselNumber"];
+    _zone.text = [dic valueForKey:@"zone"];
     
     // Do any additional setup after loading the view.
 }

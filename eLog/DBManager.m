@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 nopilas. All rights reserved.
 //
 #import "DBManager.h"
-#import "NSDataEncryption.h"
+#import "NSStringEncryption.h"
 
 static DBManager *sharedInstance = nil;
 static sqlite3 *database = nil;
@@ -37,7 +37,7 @@ static sqlite3_stmt *statement = nil;
     BOOL isSuccess = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
 
-    [filemgr removeItemAtPath:databasePath error:nil];
+   // [filemgr removeItemAtPath:databasePath error:nil];
     
     if ([filemgr fileExistsAtPath: databasePath ] == NO)
     {
@@ -81,7 +81,14 @@ static sqlite3_stmt *statement = nil;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *insertSQL = [NSString stringWithFormat:@"UPDATE Customer SET licenceHolder = \"%@\", lobsterLicence = \"%@\", vesselName = \"%@\", vesselNumber = \"%@\", zone = \"%@\" WHERE Id = \"%d\"",licenceHolder,lobsterLicence, vesselName, vesselNumber, zone, idUser];
+        NSString *licenceHolderEncrypt = [licenceHolder AES256EncryptWithKey];
+        NSString *lobsterLicenceEncrypt = [lobsterLicence AES256EncryptWithKey];
+        NSString *vesselNameEncrypt = [vesselName AES256EncryptWithKey];
+        NSString *vesselNumberEncrypt = [vesselNumber AES256EncryptWithKey];
+        NSString *zoneEncrypt = [zone AES256EncryptWithKey];
+        
+        
+        NSString *insertSQL = [NSString stringWithFormat:@"UPDATE Customer SET licenceHolder = \"%@\", lobsterLicence = \"%@\", vesselName = \"%@\", vesselNumber = \"%@\", zone = \"%@\" WHERE Id = \"%d\"",licenceHolderEncrypt,lobsterLicenceEncrypt, vesselNameEncrypt, vesselNumberEncrypt, zoneEncrypt, idUser];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
@@ -104,9 +111,10 @@ static sqlite3_stmt *statement = nil;
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
         //encrypter login et password
-        //                NSString *lineNoEncrypt = [[encrypt encryptString:[NSString stringWithFormat:@"%d", lineNo] ] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
-        
-        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO Customer (id, login, password) VALUES                              (\"%d\", \"%@\", \"%@\")",Id, login, password];
+        NSString *loginEncrypt = [login AES256EncryptWithKey];
+        NSString *passwordEncrypt = [password AES256EncryptWithKey];
+
+        NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO Customer (id, login, password) VALUES                              (\"%d\", \"%@\", \"%@\")",Id, loginEncrypt, passwordEncrypt];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
         if (sqlite3_step(statement) == SQLITE_DONE)
@@ -164,8 +172,11 @@ static sqlite3_stmt *statement = nil;
         {
             if (sqlite3_step(statement) == SQLITE_ROW)
             {
-                NSString *login = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
-                [resultArray addObject:login];
+                NSString *loginDecrypt = [[NSString alloc] initWithUTF8String: (const char *) sqlite3_column_text(statement, 0)];
+                
+                loginDecrypt = [loginDecrypt AES256DecryptWithKey];
+                
+                [resultArray addObject:loginDecrypt];
                 sqlite3_reset(statement);
                 return resultArray;
             }
@@ -185,7 +196,11 @@ static sqlite3_stmt *statement = nil;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
-        NSString *querySQL = [NSString stringWithFormat: @"SELECT id FROM Customer WHERE login = \"%@\" AND password = \"%@\"", login, password];
+        //encrypter login et password
+        NSString *loginEncrypt = [login AES256EncryptWithKey];
+        NSString *passwordEncrypt = [password AES256EncryptWithKey];
+        
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT id FROM Customer WHERE login = \"%@\" AND password = \"%@\"", loginEncrypt, passwordEncrypt];
         const char *query_stmt = [querySQL UTF8String];
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
@@ -219,11 +234,9 @@ static sqlite3_stmt *statement = nil;
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
-            NSData *encrypt = [[NSData alloc] init];
-            
             while (sqlite3_step(statement) == SQLITE_ROW)
             {
-               
+                
                 int lineNo =  sqlite3_column_int(statement, 0);
                 int soakDays = sqlite3_column_int(statement, 1);
                 int market = sqlite3_column_int(statement, 2);
@@ -236,21 +249,52 @@ static sqlite3_stmt *statement = nil;
                 NSString *longitude = [[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 9)];
                 NSString *latitude = [[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 10)];
                 
-
-                
-                
                 NSArray *keys = [NSArray arrayWithObjects:@"id", @"lineNo", @"soakDays", @"market", @"sculpin", @"cunner", @"rockCrab", @"hauledTraps", @"canner", @"date", @"longitude", @"latitude", nil];
                 
                 NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", login], [NSString stringWithFormat:@"%d", lineNo], [NSString stringWithFormat:@"%d",soakDays], [NSString stringWithFormat:@"%d",market], [NSString stringWithFormat:@"%d",sculpin], [NSString stringWithFormat:@"%d",cunner], [NSString stringWithFormat:@"%d",rockCrab], [NSString stringWithFormat:@"%d",hauledTraps], [NSString stringWithFormat:@"%d",canner], date, longitude, latitude, nil];
                 
                 NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
-                                
+                
                 [resultArray addObject:trackDictionary];
-
+                
                 
             }
             sqlite3_reset(statement);
             return resultArray;
+        }
+        else
+            sqlite3_reset(statement);
+    }
+    return nil;
+}
+
+- (NSDictionary*) SelectDataUser:(int)login
+{
+    const char *dbpath = [databasePath UTF8String];
+    if (sqlite3_open(dbpath, &database) == SQLITE_OK)
+    {
+        NSString *querySQL = [NSString stringWithFormat: @"SELECT licenceHolder, lobsterLicence, vesselName, vesselNumber, zone FROM Customer WHERE id = \"%d\" ", login];
+        const char *query_stmt = [querySQL UTF8String];
+        if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
+        {
+            while (sqlite3_step(statement) == SQLITE_ROW)
+            {
+               
+                NSString *licenceHolder = [[[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 0)] AES256DecryptWithKey];
+                NSString *lobsterLicence = [[[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 1)] AES256DecryptWithKey];
+                NSString *vesselName = [[[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 2)] AES256DecryptWithKey];
+                NSString *vesselNumber = [[[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 3)] AES256DecryptWithKey];
+                NSString *zone = [[[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 4)] AES256DecryptWithKey];
+
+                NSArray *keys = [NSArray arrayWithObjects:@"id", @"licenceHolder", @"lobsterLicence", @"vesselName", @"vesselNumber", @"zone", nil];
+                
+                NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", login], licenceHolder, lobsterLicence, vesselName, vesselNumber, zone, nil];
+                
+                NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
+                                
+                return trackDictionary;
+            }
+            sqlite3_reset(statement);
         }
         else
             sqlite3_reset(statement);

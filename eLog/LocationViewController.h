@@ -17,6 +17,11 @@
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic, strong) NSTimer *updateTimer;
 @property (nonatomic) UIBackgroundTaskIdentifier backgroundTask;
+@property (weak, nonatomic) IBOutlet UILabel *licenceHolderName;
+@property (weak, nonatomic) IBOutlet UILabel *lobsterLicenceNo;
+@property (weak, nonatomic) IBOutlet UILabel *vesselName;
+@property (weak, nonatomic) IBOutlet UILabel *vesselNumber;
+@property (weak, nonatomic) IBOutlet UILabel *zone;
 
 -(void)stopTimer;
 @end

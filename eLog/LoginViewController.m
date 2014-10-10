@@ -52,6 +52,7 @@
             }
             else
             {
+                idUserGlobal = i;
                 return YES;
             }
         }
