@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
-@interface CreateUserViewController : UIViewController
+@interface CreateUserViewController : UIViewController <NSURLConnectionDataDelegate>
 
 
 - (IBAction)CreateUser:(id)sender;
@@ -19,5 +19,9 @@
 
 @property (nonatomic, strong) NSMutableArray * jsonArray;
 @property (nonatomic, strong) NSMutableArray * boatArray;
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data;
+-(void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
 
 @end

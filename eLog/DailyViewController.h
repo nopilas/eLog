@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DailyViewController : UIViewController <UITextFieldDelegate>
+@interface DailyViewController : UIViewController <UITextFieldDelegate, NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *soakDays;
 @property (weak, nonatomic) IBOutlet UITextField *market;
 @property (weak, nonatomic) IBOutlet UITextField *sculpin;
@@ -18,4 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *dailySave;
 @property (weak, nonatomic) IBOutlet UITextField *canner;
 - (IBAction)dailySave:(id)sender;
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+-(void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection;
 @end

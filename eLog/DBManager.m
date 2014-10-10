@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 nopilas. All rights reserved.
 //
 #import "DBManager.h"
+#import "NSDataEncryption.h"
+
 static DBManager *sharedInstance = nil;
 static sqlite3 *database = nil;
 static sqlite3_stmt *statement = nil;
@@ -35,7 +37,7 @@ static sqlite3_stmt *statement = nil;
     BOOL isSuccess = YES;
     NSFileManager *filemgr = [NSFileManager defaultManager];
 
-    //[filemgr removeItemAtPath:databasePath error:nil];
+    [filemgr removeItemAtPath:databasePath error:nil];
     
     if ([filemgr fileExistsAtPath: databasePath ] == NO)
     {
@@ -101,6 +103,9 @@ static sqlite3_stmt *statement = nil;
     const char *dbpath = [databasePath UTF8String];
     if (sqlite3_open(dbpath, &database) == SQLITE_OK)
     {
+        //encrypter login et password
+        //                NSString *lineNoEncrypt = [[encrypt encryptString:[NSString stringWithFormat:@"%d", lineNo] ] base64EncodedStringWithOptions:NSDataBase64Encoding64CharacterLineLength];
+        
         NSString *insertSQL = [NSString stringWithFormat:@"INSERT INTO Customer (id, login, password) VALUES                              (\"%d\", \"%@\", \"%@\")",Id, login, password];
         const char *insert_stmt = [insertSQL UTF8String];
         sqlite3_prepare_v2(database, insert_stmt,-1, &statement, NULL);
@@ -214,6 +219,8 @@ static sqlite3_stmt *statement = nil;
         NSMutableArray *resultArray = [[NSMutableArray alloc]init];
         if (sqlite3_prepare_v2(database, query_stmt, -1, &statement, NULL) == SQLITE_OK)
         {
+            NSData *encrypt = [[NSData alloc] init];
+            
             while (sqlite3_step(statement) == SQLITE_ROW)
             {
                
@@ -229,9 +236,12 @@ static sqlite3_stmt *statement = nil;
                 NSString *longitude = [[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 9)];
                 NSString *latitude = [[NSString alloc]initWithUTF8String:  (const char *) sqlite3_column_text(statement, 10)];
                 
+
+                
+                
                 NSArray *keys = [NSArray arrayWithObjects:@"id", @"lineNo", @"soakDays", @"market", @"sculpin", @"cunner", @"rockCrab", @"hauledTraps", @"canner", @"date", @"longitude", @"latitude", nil];
                 
-                NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", login], [NSString stringWithFormat:@"%d",lineNo], [NSString stringWithFormat:@"%d",soakDays], [NSString stringWithFormat:@"%d",market], [NSString stringWithFormat:@"%d",sculpin], [NSString stringWithFormat:@"%d",cunner], [NSString stringWithFormat:@"%d",rockCrab], [NSString stringWithFormat:@"%d",hauledTraps], [NSString stringWithFormat:@"%d",canner], date, longitude, latitude, nil];
+                NSArray *objects = [NSArray arrayWithObjects:[NSString stringWithFormat:@"%d", login], [NSString stringWithFormat:@"%d", lineNo], [NSString stringWithFormat:@"%d",soakDays], [NSString stringWithFormat:@"%d",market], [NSString stringWithFormat:@"%d",sculpin], [NSString stringWithFormat:@"%d",cunner], [NSString stringWithFormat:@"%d",rockCrab], [NSString stringWithFormat:@"%d",hauledTraps], [NSString stringWithFormat:@"%d",canner], date, longitude, latitude, nil];
                 
                 NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
                                 

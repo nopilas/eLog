@@ -9,6 +9,7 @@
 #import "GlobalView.h"
 #import "Reachability.h"
 
+
 @interface GlobalView ()
 
 
@@ -54,7 +55,7 @@ UIViewController *locationUIView;
     }
 }
 
--(NSData*)jsonHttp:(NSDictionary *)dictionnary address:(NSString *)address error:(NSError *)requestError
+-(NSMutableURLRequest*)jsonHttp:(NSDictionary *)dictionnary address:(NSString *)address
 {
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject: dictionnary options:NSJSONWritingPrettyPrinted error:&error];
@@ -67,11 +68,10 @@ UIViewController *locationUIView;
     [postRequest setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [postRequest setValue:[NSString stringWithFormat:@"%lu", (unsigned long)[jsonData length]] forHTTPHeaderField:@"Content-Length"];
     [postRequest setHTTPBody:jsonData];
-    
-    NSURLResponse *response = nil;
-    NSData *returnData = [NSURLConnection sendSynchronousRequest:postRequest returningResponse:&response error:&requestError];
-    return returnData;
+   
+    return postRequest;
     
 }
+
 @end
 

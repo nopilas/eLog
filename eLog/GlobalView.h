@@ -16,7 +16,8 @@ extern UIViewController *locationUIView;
 
 @interface GlobalView : NSObject 
 -(BOOL)isInternetActive;
--(NSData*) jsonHttp:(NSDictionary*)dictionnary address:(NSString *)address error:(NSError *)requestError;
+-(NSMutableURLRequest*)jsonHttp:(NSDictionary *)dictionnary address:(NSString *)address;
 +(void)textFieldDidBeginEditing:(UITextField *)textField UIview:(UIViewController *)UIview distance:(int)distance;
 +(void)closeKeyboard:(UIViewController *)UIview;
+
 @end
