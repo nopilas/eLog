@@ -16,5 +16,9 @@
 - (IBAction)saveUserInfo:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *zone;
 //- (void) retrieveData;
+
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+-(void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge;
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection;
 @end
 

@@ -43,7 +43,18 @@
         }
         else
         {
-            return YES;
+            int i = [[DBManager getSharedInstance ]SelectCustomerInfo:_userNameTextField.text password:_passwordTextField.text];
+            if ( i == -1 )
+            {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User not found", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+                [alert show];
+                return NO;
+            }
+            else
+            {
+                idUserGlobal = i;
+                return YES;
+            }
         }
     }
     else

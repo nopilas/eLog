@@ -22,4 +22,5 @@
 - (NSArray*) SelectDailyInfo:(int)login;
 - (BOOL) saveDataUserInfo:(int)idUser licenceHolder:(NSString*)licenceHolder lobsterlicence:(NSString*)lobsterLicence vesselName:(NSString *)vesselName vesselNumber:(NSString *)vesselNumber zone:(NSString *)zone;
 -(BOOL)updateSentDaily:(int)idUser;
+- (NSDictionary*) SelectDataUser:(int)login;
 @end

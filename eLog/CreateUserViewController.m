@@ -13,6 +13,7 @@
 #import "DBManager.h"
 #import "GlobalView.h"
 #import "Reachability.h"
+#import "NSDataEncryption.h"
 
 NSString *userId;
 
@@ -98,51 +99,59 @@ NSData *receivedData;;
         
         /*l'usagé a bien été crée. On va insérer ses informations dans le SQLITE*/
         NSArray *keys = [NSArray arrayWithObjects:@"login", @"password", nil];
+        
         NSArray *objects = [NSArray arrayWithObjects:_Login.text, _Password.text, nil];
         NSDictionary *trackDictionary = [NSDictionary dictionaryWithObjects:objects forKeys:keys];
         
         GlobalView *gv = [[GlobalView alloc] init ];
         
-        NSError *requestError = nil;
-        NSData * returnData = [gv jsonHttp:trackDictionary address:@"http://nopilas.cuccfree.com/createuser.php" error:requestError];
+        NSMutableURLRequest * returnData = [gv jsonHttp:trackDictionary address:@"https://nopilas.cuccfree.com/createuser.php"];
+        (void) [NSURLConnection connectionWithRequest:returnData delegate:self];
         
-        NSString *returnString;
-        
-        if (requestError == nil)
-        {
-            returnString = [[NSString alloc] initWithBytes:[returnData bytes] length:[returnData length] encoding:NSUTF8StringEncoding];
-            NSLog(@"returnString: %@", returnString);
-        }
-        else
-        {
-            NSLog(@"NSURLConnection sendSynchronousRequest error: %@", requestError);
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[requestError localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-            return;
-        }
-        
-        if ([returnString isEqualToString:@"0"] || [returnString isEqualToString:@"0\t"])
-        {
-            // invalid information
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User already exist", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-            [alert show];
-        }
-        else
-        {
-            [[DBManager getSharedInstance ]saveDataCustomer:[returnString intValue] login: _Login.text password:
-             _Password.text] ;
-             
-            //KeychainItemWrapper *keychain = [[KeychainItemWrapper alloc] initWithIdentifier:@"LoginData" accessGroup:nil];
-            
-            //[keychain setObject:[_Login text] forKey:(__bridge id)(kSecAttrAccount)];
-            //[keychain setObject:returnString forKey:(__bridge id)(kSecAttrComment)];
-            
-            idUserGlobal = [returnString intValue];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User created successfully",nil) delegate:self cancelButtonTitle:@"Login" otherButtonTitles:nil, nil];
-            
-            [alert show];
-        }
     }
 }
+
+- (void) connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
+{
+    NSMutableData *d = [[NSMutableData data] init];
+    [d appendData:data];
+    
+    NSString *returnString = [[NSString alloc] initWithData:d encoding:NSASCIIStringEncoding];
+    
+    if ([returnString isEqualToString:@"0"] || [returnString isEqualToString:@"0\t"])
+    {
+        // invalid information
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User already exist", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+        [alert show];
+    }
+    else
+    {
+        [[DBManager getSharedInstance ]saveDataCustomer:[returnString intValue] login: _Login.text password:
+         _Password.text] ;
+        
+        idUserGlobal = [returnString intValue];
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Alert", nil) message:NSLocalizedString(@"User created successfully",nil) delegate:self cancelButtonTitle:@"Login" otherButtonTitles:nil, nil];
+        
+        [alert show];
+    }
+}
+
+-(void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[error localizedDescription] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
+-(void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+    {
+        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]
+             forAuthenticationChallenge:challenge];
+    }
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
+}
+
 @end

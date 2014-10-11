@@ -127,30 +127,8 @@
             
             GlobalView *a = [[GlobalView alloc] init ];
             
-            NSError *requestError = nil;
-            NSData * returnData = [a jsonHttp:trackDictionary address:@"http://nopilas.cuccfree.com/saveDaily.php" error:requestError];
-            
-            NSString *returnString;
-            
-            if (requestError == nil)
-            {
-                returnString = [[NSString alloc] initWithBytes:[returnData bytes] length:[returnData length] encoding:NSUTF8StringEncoding];
-                NSLog(@"returnString: %@", returnString);
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Save", nil) message:NSLocalizedString(@"Save successfully", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                
-                // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
-                [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
-                
-                if ( locationUIView != nil )
-                    [(LocationViewController *) locationUIView stopTimer];
-            }
-            else
-            {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Retry again", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-                [alert show];
-                NSLog(@"NSURLConnection sendSynchronousRequest error: %@", requestError);
-            }
+            NSMutableURLRequest * returnData = [a jsonHttp:trackDictionary address:@"https://nopilas.cuccfree.com/saveDaily.php"];
+            (void) [NSURLConnection connectionWithRequest:returnData delegate:self];
         }
     }
 }
@@ -166,6 +144,36 @@
 {
     [self.view endEditing:YES];
     [GlobalView closeKeyboard:self];
+}
+
+- (void) connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", nil) message:NSLocalizedString(@"Retry again", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    NSLog(@"NSURLConnection sendSynchronousRequest error: %@", error);
+}
+
+-(void) connectionDidFinishLoading:(NSURLConnection *)connection
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Save", nil) message:NSLocalizedString(@"Save successfully", nil) delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+    [alert show];
+    
+    // on indique dans la bd que ce lignes où sent était à 0 qu'elles sont bien uploadées.
+    [[DBManager getSharedInstance]updateSentDaily:idUserGlobal];
+    
+    if ( locationUIView != nil )
+        [(LocationViewController *) locationUIView stopTimer];
+}
+
+-(void) connection:(NSURLConnection *)connection willSendRequestForAuthenticationChallenge:(NSURLAuthenticationChallenge *)challenge
+{
+    if([challenge.protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust])
+    {
+        [challenge.sender useCredential:[NSURLCredential credentialForTrust:challenge.protectionSpace.serverTrust]
+             forAuthenticationChallenge:challenge];
+    }
+    
+    [challenge.sender continueWithoutCredentialForAuthenticationChallenge:challenge];
 }
 
 
